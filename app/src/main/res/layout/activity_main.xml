@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.ama.righthajj.MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/hint"
+        android:textSize="18sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/hajj_period"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:orientation="horizontal">
+
+
+        <EditText
+            android:id="@+id/from_textEdit"
+            android:layout_width="177dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="10dp"
+            android:drawableLeft="@drawable/ic_noun_calendar_1794552"
+            android:ems="10"
+            android:hint="@string/from_date"
+            android:inputType="date"
+            tools:layout_editor_absoluteX="39dp"
+            tools:layout_editor_absoluteY="108dp" />
+
+        <EditText
+            android:id="@+id/toTextEdit"
+            android:layout_width="174dp"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_noun_calendar_1794552"
+            android:ems="10"
+            android:hint="@string/to_date"
+            android:inputType="date"
+            tools:layout_editor_absoluteX="39dp"
+            tools:layout_editor_absoluteY="108dp" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/preferred_time_tawaf"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:orientation="horizontal">
+
+
+        <EditText
+            android:id="@+id/from_textEdit_tawaf"
+            android:layout_width="177dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:drawableLeft="@drawable/ic_noun_clock_1873368"
+            android:ems="10"
+            android:hint="@string/from_date"
+            android:inputType="date"
+            tools:layout_editor_absoluteX="39dp"
+            tools:layout_editor_absoluteY="108dp" />
+
+        <EditText
+            android:id="@+id/toTextEdit_saffa"
+            android:layout_width="174dp"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_noun_clock_1873368"
+            android:ems="10"
+            android:hint="@string/to_date"
+            android:inputType="date"
+            tools:layout_editor_absoluteX="39dp"
+            tools:layout_editor_absoluteY="108dp" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/preferred_time_saffa"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:orientation="horizontal">
+
+
+        <EditText
+            android:id="@+id/from_textEdit_saffa"
+            android:layout_width="177dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:drawableLeft="@drawable/ic_noun_clock_1873368"
+            android:ems="10"
+            android:hint="@string/from_date"
+            android:inputType="date"
+            tools:layout_editor_absoluteX="39dp"
+            tools:layout_editor_absoluteY="108dp" />
+
+        <EditText
+            android:id="@+id/to_textEdit_saffa"
+            android:layout_width="174dp"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_noun_clock_1873368"
+            android:ems="10"
+            android:hint="@string/to_date"
+            android:inputType="date"
+            tools:layout_editor_absoluteX="39dp"
+            tools:layout_editor_absoluteY="108dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/buttonstyleithgradient2"
+            android:text="@string/submit_button"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/ignore"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:background="@drawable/buttonstyleithgradient2"
+            android:text="@string/skip_button"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+
+</LinearLayout>

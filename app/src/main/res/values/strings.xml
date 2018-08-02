@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">RightHajj</string>
+    <string name="from_date">from</string>
+    <string name="to_date">to</string>
+    <string name="hajj_period">Hadj period</string>
+    <string name="hint">filling this form will enhance your hajj experience</string>
+    <string name="preferred_time_tawaf">Prefered TAWAF time</string>
+    <string name="preferred_time_saffa">Prefered SAFA &amp;&amp; MARWA time</string>
+    <string name="submit_button">Submit</string>
+    <string name="skip_button">Skip</string>
+
+    <string name="title_activity_start_screen">StartScreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_tawaf">Tawaf</string>
+    <string name="title_activity_jamarat">Jamarat</string>
+    <string name="title_activity_saffa">Saffa</string>
+    <string name="title_activity_navigation_drawer">NavigationDrawer</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+</resources>
