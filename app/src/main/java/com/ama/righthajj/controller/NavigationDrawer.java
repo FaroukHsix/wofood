@@ -12,14 +12,22 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.ama.righthajj.R;
 import com.ama.righthajj.model.User;
+import com.ama.righthajj.tasks.Auth;
 
 public class NavigationDrawer extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+
+    LinearLayout tawaf ;
+    LinearLayout jamarat;
+    LinearLayout saffa;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,21 +35,30 @@ public class NavigationDrawer extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
-
+        Auth status = new Auth(getApplicationContext());
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ProgressBar bar = findViewById(R.id.progress_nbr_hajj);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-        User user = (User) getIntent().getParcelableExtra("user");
+        User user = (User)getIntent().getSerializableExtra("user");
+        Toast.makeText(this, ""+user.getFullname(), Toast.LENGTH_SHORT).show();
+
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         View hView =  navigationView.getHeaderView(0);
+
         TextView fullName  = hView.findViewById(R.id.full_name);
         TextView duration = findViewById(R.id.duration);
-        duration.setText(user.getDuration());
+        TextView availability = findViewById(R.id.nbr_hajj);
+
+
+        duration.append("\t"+convert(user.getDuration()));
         fullName.setText(user.getFullname());
+        status.getStatus("https://assiwad.000webhostapp.com/v1/status",availability,bar);
+
+
         navigationView.setNavigationItemSelectedListener(this);
     }
 
@@ -100,5 +117,14 @@ public class NavigationDrawer extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    String convert (int amount){
+        int result = (int) amount/60;
+        int rest = amount - (result * 60);
+        if (rest != 0)
+        return result+" H"+rest + " M";
+
+        return result+" H";
     }
 }

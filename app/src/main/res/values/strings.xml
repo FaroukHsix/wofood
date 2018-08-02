@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">RightHajj</string>
+    <string name="app_name">Wofood</string>
     <string name="from_date">from</string>
     <string name="to_date">to</string>
     <string name="hajj_period">Hadj period</string>
@@ -15,7 +15,7 @@
     <string name="title_activity_tawaf">Tawaf</string>
     <string name="title_activity_jamarat">Jamarat</string>
     <string name="title_activity_saffa">Saffa</string>
-    <string name="title_activity_navigation_drawer">NavigationDrawer</string>
+    <string name="title_activity_navigation_drawer">Dashboard</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
