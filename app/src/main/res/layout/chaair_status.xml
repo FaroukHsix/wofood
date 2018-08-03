@@ -60,7 +60,7 @@
         android:background="@drawable/gradientbackground">
 
         <ImageView
-
+            android:id="@+id/jamarat"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_weight="1"
@@ -93,7 +93,7 @@
         android:background="@drawable/gradientbackground">
 
         <ImageView
-
+            android:id="@+id/saffa"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_weight="1"

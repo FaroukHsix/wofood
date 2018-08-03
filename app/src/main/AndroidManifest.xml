@@ -20,7 +20,7 @@
         <activity
             android:name=".controller.Tawaf"
             android:label="@string/title_activity_tawaf"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".controller.Jamarat"
             android:label="@string/title_activity_jamarat"

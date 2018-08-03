@@ -2,17 +2,18 @@ package com.ama.righthajj.tasks;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.ama.righthajj.MainActivity;
 import com.ama.righthajj.controller.NavigationDrawer;
+import com.ama.righthajj.controller.Tawaf;
+import com.ama.righthajj.model.Gate;
 import com.ama.righthajj.model.Response;
 import com.ama.righthajj.model.User;
-import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 import com.koushikdutta.async.future.FutureCallback;
@@ -24,12 +25,12 @@ import java.util.ArrayList;
  * Created by hammo on 8/2/2018.
  */
 
-public class Auth {
+public class Task {
 
     private Context context;
 
 
-    public Auth(Context context) {
+    public Task(Context context) {
         this.context = context;
     }
 
@@ -38,8 +39,9 @@ public class Auth {
         Ion.with(context)
                 .load("POST", route)
                 .addHeader("accept", "application/json")
-                .setBodyParameter("id",id)
-                .as(new TypeToken<Response<User>>(){})
+                .setBodyParameter("id", id)
+                .as(new TypeToken<Response<User>>() {
+                })
                 .setCallback(new FutureCallback<Response<User>>() {
                     @Override
                     public void onCompleted(Exception e, Response<User> result) {
@@ -52,7 +54,7 @@ public class Auth {
                                 Toast.makeText(context, "not recognized", Toast.LENGTH_SHORT).show();
                             } else {
                                 Toast.makeText(context, "Identified", Toast.LENGTH_SHORT).show();
-                                Intent i = new Intent(context, MainActivity.class);
+                                Intent i = new Intent(context, NavigationDrawer.class);
                                 i.putExtra("user", result.getPayload());
                                 context.startActivity(i);
                             }
@@ -66,7 +68,7 @@ public class Auth {
 
     }
 
-    public void getStatus(String route, final TextView text , final ProgressBar bar){
+    public void getStatus(String route, final TextView text, final ProgressBar bar) {
 
         Ion.with(context)
                 .load("POST", route)
@@ -76,11 +78,11 @@ public class Auth {
                     @Override
                     public void onCompleted(Exception e, JsonObject result) {
                         bar.setVisibility(View.GONE);
-                        if (e!= null ){
+                        if (e != null) {
                             Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
-                        }else {
+                        } else {
                             text.setVisibility(View.VISIBLE);
-                            Log.i("result",result+"");
+                            Log.i("result", result + "");
                             int houjjajNbr = Integer.parseInt(result.get("number").getAsString());
                             if (houjjajNbr < 29500)
                                 text.setText(" available");
@@ -92,7 +94,31 @@ public class Auth {
                 });
 
 
-
     }
+
+    public void getGatesStatus(String route) {
+        Ion.with(context)
+                .load("GET", route)
+                .addHeader("accept", "application/json")
+
+                .as(new TypeToken<ArrayList<Gate>>() {
+                })
+                .setCallback(new FutureCallback<ArrayList<Gate>>() {
+                    @Override
+                    public void onCompleted(Exception e, ArrayList<Gate> gates) {
+                        if (e != null) {
+                            e.printStackTrace();
+                        } else {
+                            Bundle bundle=new Bundle();
+                            bundle.putSerializable("gates",gates);
+                            Intent i = new Intent(context, Tawaf.class);
+                            i.putExtras(bundle);
+                            context.startActivity(i);
+                        }
+
+                    }
+                });
+    }
+
 
 }

@@ -20,6 +20,16 @@
             android:id="@+id/nav_manage"
             android:icon="@drawable/ic_noun_kabah_1386924"
             android:title="manasik" />
+
+        <item
+            android:id="@+id/nav_pref"
+            android:icon="@drawable/ic_noun_kabah_1386924"
+            android:title="preferences" />
+
+        <item
+            android:id="@+id/nav_wofoodi"
+            android:icon="@drawable/ic_noun_kabah_1386924"
+            android:title="wofoodi" />
         <item
             android:id="@+id/nav_exit"
             android:icon="@drawable/ic_noun_exit_1379866"

@@ -6,21 +6,20 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 
 import com.ama.righthajj.R;
-import com.ama.righthajj.tasks.Auth;
+import com.ama.righthajj.tasks.Task;
 
 public class Intro extends AppCompatActivity {
 
-    Auth connexion;
+    Task connexion;
     EditText id ;
     ProgressBar bar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intro);
-        connexion = new Auth(getApplicationContext());
+        connexion = new Task(getApplicationContext());
         id = findViewById(R.id.id_user);
         bar = findViewById(R.id.authBar);
 
